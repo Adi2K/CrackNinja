@@ -30,8 +30,8 @@ class Game:
     
     
 
-p1 = Game("Rainbow Six Siege","Cracked")
-p1.myname()
-p1.mystatus()
+# p1 = Game("Rainbow Six Siege","Cracked")
+# p1.myname()
+# p1.mystatus()
 
 

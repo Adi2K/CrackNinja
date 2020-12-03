@@ -25,7 +25,9 @@ for i in gname:
     bar.send_keys(i)
     time.sleep(0.08)
 bar.click()
+
 time.sleep(1)   #time to load the result in the driver
+
 page_source = chrome_browser.page_source
 
 
