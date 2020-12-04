@@ -23,7 +23,7 @@ options.add_argument('--ignore-certificate-errors')
 options.add_argument('--incognito')
 #options.add_argument('--headless')
 chrome_browser = webdriver.Chrome(executable_path='./chromedriver',options=options)
-chrome_browser.get("https://crackwatch.com/game/watch-dogs-legion")
+chrome_browser.get("https://crackwatch.com/game/halo-spartan-assault")
 
 timeout = 30
 try:
@@ -88,7 +88,7 @@ for p in price_dict.items():
     print(p)
 
 
-g1 = Game(game_name , cracked_status, top_status, release_date, crack_date,protection, scene, price_dict, follow_count,"https://crackwatch.com/game/watch-dogs-legion")
+g1 = Game(game_name , cracked_status, top_status, release_date, crack_date,protection, scene, price_dict, follow_count,"https://crackwatch.com/game/halo-spartan-assault")
 
 #//*[@id="react-root"]/div/div[2]/div[2]/div/div/div[2]/div[1]/div[2]/div[3]/div[2]/div[2]/div[2]/div[1]/div[2]
 ##react-root > div > div.App > div:nth-child(2) > div > div > div.container > div:nth-child(1) > div.sc-bxivhb.cMJOaY > div.game-page-header-over > div:nth-child(2) > div.sc-ifAKCX.eWTlLz > div.grid > div:nth-child(1) > div.info-data
