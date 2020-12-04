@@ -7,6 +7,7 @@ Created on Wed Dec  2 12:39:14 2020
 """
 
 from FlagsNArgs import look_for_arguments, look_for_flags
+from Search_scrape import search_scrape
 
 
 def Search(inp):
@@ -40,16 +41,48 @@ def set_search_flags(flags):
 
 
 def crackninjaSearch(name,number =10,is_aaa = True, is_indie =True, is_cracked = True, is_notcracked = True, is_released = True, is_unreleased = True ):
-    print("You are trying to run SEARCH")
-    print("for",name)
-    print("with the following filters:")
-    print("is_aaa = ",is_aaa)
-    print("is_Indie = ",is_indie)
-    print("is_cracked = ",is_cracked)
-    print("is_not-cracked = ",is_notcracked)
-    print("is_released = ",is_released)
-    print("is_unreleased = ",is_unreleased)
+    # print("You are trying to run SEARCH")
+    # print("for",name)
+    # print("with the following filters:")
+    # print("is_aaa = ",is_aaa)
+    # print("is_Indie = ",is_indie)
+    # print("is_cracked = ",is_cracked)
+    # print("is_not-cracked = ",is_notcracked)
+    # print("is_released = ",is_released)
+    # print("is_unreleased = ",is_unreleased)
     
     #yaha pe pura scrapping vagera call hoga 
+    if(is_aaa and is_indie):
+        gtype = 0
+    elif(is_aaa):
+        gtype = 1
+    elif(is_indie):
+        gtype = 2
+        
+    if(is_cracked and is_notcracked):
+        gstatus = 0
+    elif(is_cracked):
+        gstatus = 1
+    elif(is_notcracked):
+        gstatus = 2
     
+    if(is_released and is_unreleased):
+        grel_d = 0
+    elif(is_released):
+        grel_d = 1
+    elif(is_unreleased):
+        grel_d = 2
+
+        
+    ans = search_scrape(name,gstatus,grel_d,gtype)
+    display = {}
+    i = 1
+    for a in ans.keys():
+        display[i] = a
+        i = i+1
+    
+    for dk, dv in display.items():
+        print(dk,"-->",dv)
+        
+        
     return 1
