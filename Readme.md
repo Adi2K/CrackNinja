@@ -1,7 +1,7 @@
 Still In Progress PLease Be Patient <3 
 
 Contributors:
-Aditya Kadam
+Adi2K
 Prajwal Bondarde
 
                 
