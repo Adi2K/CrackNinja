@@ -10,9 +10,9 @@ Created on Wed Dec  2 13:03:19 2020
 
 #methodDictionary = {0: Search, 1: Whishlist, 2: AddToFav, 3: Exit, 4: Help}
 
-builtin_methods_name = ["search", "whishlist", "addtofav", "exit", "help"]
+builtin_methods_name = ["search", "whishlist", "addtofav", "exit", "help", "clear"]
 
-num_builtin_methods = 5
+num_builtin_methods = 6
 
 
 

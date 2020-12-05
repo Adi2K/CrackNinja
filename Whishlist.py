@@ -17,7 +17,7 @@ def Whishlist(inp):
     show_wishlist("wishlist.txt")
     return 1
 
-def Add_wishlist(file_name,Game_name):
+def Add_to_wishlist(file_name,Game_name):
       
     WishList_File_object=open(file_name,"a")
 

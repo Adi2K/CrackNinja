@@ -8,6 +8,8 @@ Created on Wed Dec  2 12:39:14 2020
 
 from FlagsNArgs import look_for_arguments, look_for_flags
 from Search_scrape import search_scrape
+from scrap import search_game
+from Game import Game
 
 
 def Search(inp):
@@ -83,6 +85,16 @@ def crackninjaSearch(name,number =10,is_aaa = True, is_indie =True, is_cracked =
     
     for dk, dv in display.items():
         print(dk,"-->",dv)
-        
-        
+
+    print("Choose the index of the Game you want to checkout : ")        
+    choice = input()
+    while (int(choice) < 0 or int(choice) >= i):
+        print("Sorry, Please make a VALID choice !")
+        choice = input()
+    
+    link = ans[display[int(choice)]]
+    
+    game_res = search_game(link)
+    game_res.printdetails()
+    
     return 1
