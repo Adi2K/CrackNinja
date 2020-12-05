@@ -22,10 +22,10 @@ class Game:
       
     
     def myname(self):
-        print("Game Name : " + self.name)
+        return self.name
     
-    def mystatus(self):
-        print("Game Status : "+ self.status)
+    def mylink(self):
+        return self.link
         
     def printdetails(self):
         print("Game Details => ")

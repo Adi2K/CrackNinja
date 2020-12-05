@@ -15,9 +15,9 @@ from Game import Game
 def Search(inp):
     flag_list = set_search_flags((look_for_flags(inp)))
     name = look_for_arguments(inp)
-    if(crackninjaSearch(name,0,flag_list[0],flag_list[1],flag_list[2],flag_list[3],flag_list[4],flag_list[5])):
-        return 1
-    return 0
+    ans = crackninjaSearch(name,0,flag_list[0],flag_list[1],flag_list[2],flag_list[3],flag_list[4],flag_list[5])
+    ans.printdetails()
+    return 1
 
 
 
@@ -43,16 +43,7 @@ def set_search_flags(flags):
 
 
 def crackninjaSearch(name,number =10,is_aaa = True, is_indie =True, is_cracked = True, is_notcracked = True, is_released = True, is_unreleased = True ):
-    # print("You are trying to run SEARCH")
-    # print("for",name)
-    # print("with the following filters:")
-    # print("is_aaa = ",is_aaa)
-    # print("is_Indie = ",is_indie)
-    # print("is_cracked = ",is_cracked)
-    # print("is_not-cracked = ",is_notcracked)
-    # print("is_released = ",is_released)
-    # print("is_unreleased = ",is_unreleased)
-    
+
     #yaha pe pura scrapping vagera call hoga 
     if(is_aaa and is_indie):
         gtype = 0
@@ -95,6 +86,4 @@ def crackninjaSearch(name,number =10,is_aaa = True, is_indie =True, is_cracked =
     link = ans[display[int(choice)]]
     
     game_res = search_game(link)
-    game_res.printdetails()
-    
-    return 1
+    return game_res

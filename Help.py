@@ -31,11 +31,11 @@ def Help(inp):
         #print(method)
         if (method == -1):
             print("No Such Method entry in Help documentation")
-        elif (method == 1):
+        elif (method == 0):
             print("")
             print("Help Documentation of ",flags_of_help[method])
             print("Blah...... Blah....... Blah.......")
-        elif (method == 2):
+        elif (method == 1):
             print("")
             print("Help Documentation of ",flags_of_help[method])
             print("Blah...... Blah....... Blah.......")
