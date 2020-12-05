@@ -16,9 +16,10 @@ from Help import Help
 from Whishlist import Whishlist
 from Addtofav import AddToFav
 from Exit import Exit
+from Clear import Clear
 
 
-methodDictionary = {0: Search, 1: Whishlist, 2: AddToFav, 3: Exit, 4: Help}
+methodDictionary = {0: Search, 1: Whishlist, 2: AddToFav, 3: Exit, 4: Help, 5: Clear}
 
 
 def Prompt_And_Read():

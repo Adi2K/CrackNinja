@@ -6,31 +6,31 @@ from FlagsNArgs import look_for_main_arg, look_for_flag_arg_pair
 #from Tokenize import Tokenize_space
 
 def Whishlist(inp):
-    
+
     file_name = look_for_main_arg(inp)
     file_name = file_name + ".txt"
-    
+
     if (file_name == ".txt"):
         file_name = "wishlist.txt"
-    
+
     fna = look_for_flag_arg_pair(inp)
-    
-    
+
+
     print("Whishlist : ",file_name)
     for df, dn in fna.items():
-        
+
         if(df == "-a"):
-            
+
             return Add_to_wishlist(file_name,dn)
-            
-            
+
+
         elif(df == "-r"):
-            
+
             return Remove_from_wishlist(file_name,dn)
-            
+
         elif(df == "-s"):
-            
-            return Show_wishlist(file_name)
+
+          return Show_wishlist(file_name)
             
     
 

@@ -22,14 +22,14 @@ def search_scrape(gname,stat = 0,rel_d = 0,gtype = 0):
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
-    #options.add_argument('--headless')
+    # options.add_argument('--headless')
     chrome_browser = webdriver.Chrome(executable_path='./chromedriver',options=options)
     chrome_browser.get("https://crackwatch.com/search")
     bar = chrome_browser.find_element_by_class_name('bar-search')
     bar.clear()
     for i in gname:
         bar.send_keys(i)
-        time.sleep(0.08)
+        # time.sleep(0.08)
     bar.click()
 
 
@@ -46,7 +46,7 @@ def search_scrape(gname,stat = 0,rel_d = 0,gtype = 0):
     timeout = 30
     try:
         WebDriverWait(chrome_browser, timeout).until(EC.visibility_of_element_located((By.CLASS_NAME, "game-row")))
-        time.sleep(0.8)
+        time.sleep(2)
     except TimeoutException:
         chrome_browser.quit()
     
@@ -65,8 +65,8 @@ def search_scrape(gname,stat = 0,rel_d = 0,gtype = 0):
         name = atag.get_text()
         game_dict[name] = site+link
 
-    #chrome_browser.quit()
+    chrome_browser.quit()
     return game_dict
 
-ans = search_scrape("Halo",1,0,1)
+# ans = search_scrape("Halo",1,0,1)
 
