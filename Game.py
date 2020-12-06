@@ -28,19 +28,19 @@ class Game:
         return self.link
         
     def printdetails(self):
-        print("Game Details => ")
-        print("Game Name : " + self.name)
-        print("Game Status : "+ self.status)
-        print("Extra Status : "+ self.crackedafter)
-        print("Release Date: "+ self.crackdate)
-        print("DRM Protection : "+ self.drm)
-        print("Scene Group : "+ self.scenegroup)
-        print("Followers : "+ self.followers)
-        print("Game Link :"+ self.link)
+        print("    --------Game Details-------- ")
+        print("    Game Name : " + self.name)
+        print("    Game Status : "+ self.status)
+        print("    Extra Status : "+ self.crackedafter)
+        print("    Release Date: "+ self.crackdate)
+        print("    DRM Protection : "+ self.drm)
+        print("    Scene Group : "+ self.scenegroup)
+        print("    Followers : "+ self.followers)
+        print("    Game Link :"+ self.link)
         
-        print("Prices :")
+        print("\n","    Prices :")
         for p,q in self.price_dict.items():
-            print(p,"->", q)
+            print("    ",p,"->", q)
         
         
   

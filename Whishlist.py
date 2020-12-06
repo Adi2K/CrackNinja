@@ -23,6 +23,8 @@ def Whishlist(inp):
         if(df == "-a"):
             
             ans = crackninjaSearch(dn)
+            if(ans == 1):
+                return 1
             dn = ans.myname()
             
             return Add_to_wishlist(file_name,dn)

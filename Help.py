@@ -45,4 +45,7 @@ def Help(inp):
             print("Blah...... Blah....... Blah.......")
         return 1
     
+    #whishlist <whishlist name> -flag <game name>
+    #whishlist name :
+        #
     

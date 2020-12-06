@@ -16,6 +16,8 @@ def Search(inp):
     flag_list = set_search_flags((look_for_flags(inp)))
     name = look_for_arguments(inp)
     ans = crackninjaSearch(name,0,flag_list[0],flag_list[1],flag_list[2],flag_list[3],flag_list[4],flag_list[5])
+    if(ans == 1):
+        return 1
     ans.printdetails()
     return 1
 
@@ -74,14 +76,24 @@ def crackninjaSearch(name,number =10,is_aaa = True, is_indie =True, is_cracked =
         display[i] = a
         i = i+1
     
+    print("\n","---------RESULT--------")
     for dk, dv in display.items():
         print(dk,"-->",dv)
 
-    print("Choose the index of the Game you want to checkout : ")        
-    choice = input()
-    while (int(choice) < 0 or int(choice) >= i):
-        print("Sorry, Please make a VALID choice !")
-        choice = input()
+    print("\n"," Choose the index of the Game you want OR 0 to go back: ") 
+    valid = 0    
+    while(not valid):
+        choice = input("   >>")
+        if(choice.isnumeric()):
+            if(int(choice) >= 0 and int(choice) < i):
+                valid = 1
+            else:
+                print("    Sorry, Please make a VALID choice !")
+        else:
+            print("    Sorry, Please make a VALID choice !")
+    
+    if(int(choice) == 0):
+        return 1
     
     link = ans[display[int(choice)]]
     
