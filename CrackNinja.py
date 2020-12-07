@@ -18,6 +18,7 @@ from Addtofav import AddToFav
 from Exit import Exit
 from Clear import Clear
 
+from Intro_Art import intro_art
 
 methodDictionary = {0: Search, 1: Whishlist, 2: AddToFav, 3: Exit, 4: Help, 5: Clear}
 
@@ -26,8 +27,9 @@ def Prompt_And_Read():
     inp = input("CrackNinja > ")
     return inp
 
-
+intro_art()
 return_status = 1
+
 print("")
 print(" NOTE : CrackNinja is a Scrapper for Crackwatch it only tracks crack status and offers no download, torrent, or such")
 
