@@ -6,25 +6,34 @@ Created on Wed Dec  2 15:52:38 2020
 @author: aditya
 """
 
-from selenium import webdriver
+
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 
+from chrome_b import chrome_browser
 import time
 from bs4 import BeautifulSoup
 
-
-
 def search_scrape(gname,stat = 0,rel_d = 0,gtype = 0):
-    options = webdriver.ChromeOptions()
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--incognito')
-    # options.add_argument('--headless')
-    chrome_browser = webdriver.Chrome(executable_path='./chromedriver',options=options)
+
     chrome_browser.get("https://crackwatch.com/search")
+
+    status_set = Select(
+        chrome_browser.find_element_by_xpath("//div[@class='bar-grid']/select[@class='form-control bar-selector'][1]"))
+    status_set.select_by_value(str(stat))
+
+    date_set = Select(
+        chrome_browser.find_element_by_xpath("//div[@class='bar-grid']/select[@class='form-control bar-selector'][2]"))
+    date_set.select_by_value(str(rel_d))
+
+    gametype_set = Select(
+        chrome_browser.find_element_by_xpath("//div[@class='bar-grid']/select[@class='form-control bar-selector'][3]"))
+    gametype_set.select_by_value(str(gtype))
+
+
     bar = chrome_browser.find_element_by_class_name('bar-search')
     bar.clear()
     for i in gname:
@@ -32,25 +41,17 @@ def search_scrape(gname,stat = 0,rel_d = 0,gtype = 0):
         # time.sleep(0.08)
     bar.click()
 
+    time.sleep(1)
 
-    status_set = Select(chrome_browser.find_element_by_xpath("//div[@class='bar-grid']/select[@class='form-control bar-selector'][1]"))
-    status_set.select_by_value(str(stat))
-    
-    date_set = Select(chrome_browser.find_element_by_xpath("//div[@class='bar-grid']/select[@class='form-control bar-selector'][2]"))
-    date_set.select_by_value(str(rel_d))
-    
-    gametype_set = Select(chrome_browser.find_element_by_xpath("//div[@class='bar-grid']/select[@class='form-control bar-selector'][3]"))
-    gametype_set.select_by_value(str(gtype))
-
-    
-    timeout = 30
+    timeout = 10
     try:
-        WebDriverWait(chrome_browser, timeout).until(EC.visibility_of_element_located((By.CLASS_NAME, "game-row")))
-        time.sleep(2)
+        WebDriverWait(chrome_browser, timeout).until(EC.element_to_be_clickable((By.CLASS_NAME, "game-row-release-date")))
+        time.sleep(1)
     except TimeoutException:
+        #Exceptions needs to be handled properly
         chrome_browser.quit()
-    
-    
+        return 1
+
     page_source = chrome_browser.page_source 
     soup = BeautifulSoup(page_source, 'lxml')
     
@@ -65,7 +66,6 @@ def search_scrape(gname,stat = 0,rel_d = 0,gtype = 0):
         name = atag.get_text()
         game_dict[name] = site+link
 
-    chrome_browser.quit()
     return game_dict
 
 # ans = search_scrape("Halo",1,0,1)

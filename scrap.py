@@ -7,7 +7,7 @@ Created on Wed Dec  2 15:52:38 2020
 """
 
 from Game import Game
-from selenium import webdriver
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -15,14 +15,12 @@ from selenium.common.exceptions import TimeoutException
 
 
 from bs4 import BeautifulSoup
-#import time
+
+from chrome_b import chrome_browser
+
 
 def search_game(link):
-    options = webdriver.ChromeOptions()
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--incognito')
-    #options.add_argument('--headless')
-    chrome_browser = webdriver.Chrome(executable_path='./chromedriver',options=options)
+
     chrome_browser.get(link)
     
     timeout = 30
@@ -69,36 +67,10 @@ def search_game(link):
         store_name = atag.get('href').split("?",1)[0][28:]
         price = store_selector.find('div', class_='inline-block').get_text()
         price_dict[store_name] = price
-    
-    #here we are only getting the partial price list for the full price list we will have to use selenium
-    
-    
-    
-    # print("Name : ",game_name)
-    # print("Status :",cracked_status)
-    # print("Top Status : ",top_status)
-    # print("Release Date : ",release_date)
-    # print("Crack Date : ",crack_date)
-    # print("Protection : ",protection)
-    # print("Scene Group : ",scene)
-    # print("Followers : ",follow_count)
-    
-    # print("Prices :")
-    # for p in price_dict.items():
-    #     print(p)
-    
-    
+
     g1 = Game(game_name , cracked_status, top_status, release_date, crack_date,protection, scene, price_dict, follow_count, link)
-    chrome_browser.quit()
+
     return g1
 
 
 
-
-
-
-
-#//*[@id="react-root"]/div/div[2]/div[2]/div/div/div[2]/div[1]/div[2]/div[3]/div[2]/div[2]/div[2]/div[1]/div[2]
-##react-root > div > div.App > div:nth-child(2) > div > div > div.container > div:nth-child(1) > div.sc-bxivhb.cMJOaY > div.game-page-header-over > div:nth-child(2) > div.sc-ifAKCX.eWTlLz > div.grid > div:nth-child(1) > div.info-data
-#https://crackwatch.com/goto/uplay-shop
-#https://crackwatch.com/game/halo-spartan-assault")

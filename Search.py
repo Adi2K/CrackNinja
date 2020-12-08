@@ -70,6 +70,9 @@ def crackninjaSearch(name,number =10,is_aaa = True, is_indie =True, is_cracked =
 
         
     ans = search_scrape(name,gstatus,grel_d,gtype)
+    if(ans == 1):
+        print("Failed to find the game")
+        return 1
     display = {}
     i = 1
     for a in ans.keys():
