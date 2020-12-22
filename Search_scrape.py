@@ -21,8 +21,8 @@ def search_scrape(gname,stat = 0,rel_d = 0,gtype = 0):
 
 
 
-
-    bar = chrome_browser.find_element_by_class_name('bar-search')
+    chrome_browser.get("https://crackwatch.com/search")
+    bar = chrome_browser.find_element_by_xpath('//input[@placeholder="Search Game Title..."]')
     bar.clear()
     for i in gname:
         bar.send_keys(i)
@@ -56,5 +56,5 @@ def search_scrape(gname,stat = 0,rel_d = 0,gtype = 0):
 
     return game_dict
 
-# ans = search_scrape("Halo",1,0,1)
+
 
