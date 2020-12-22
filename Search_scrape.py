@@ -18,10 +18,24 @@ import time
 from bs4 import BeautifulSoup
 
 def search_scrape(gname,stat = 0,rel_d = 0,gtype = 0):
-
-
-
     chrome_browser.get("https://crackwatch.com/search")
+    
+    status_set = Select(
+        chrome_browser.find_element_by_xpath("//div[@class='bar-grid']/select[@class='form-control bar-selector'][1]"))
+    status_set.select_by_value(str(stat))
+
+    date_set = Select(
+        chrome_browser.find_element_by_xpath("//div[@class='bar-grid']/select[@class='form-control bar-selector'][2]"))
+    date_set.select_by_value(str(rel_d))
+
+    gametype_set = Select(
+        chrome_browser.find_element_by_xpath("//div[@class='bar-grid']/select[@class='form-control bar-selector'][3]"))
+    gametype_set.select_by_value(str(gtype))
+
+
+
+
+    
     bar = chrome_browser.find_element_by_xpath('//input[@placeholder="Search Game Title..."]')
     bar.clear()
     for i in gname:
