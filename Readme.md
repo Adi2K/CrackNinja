@@ -7,7 +7,7 @@
 ─────────────────╚═╝<br />
 # Under Development Please Be patient :)
 # Crackwatch is temporarily Down (Lack of Funds)
-# It is supposed to be back on 09/2021 will ccontinue the project then...
+# It is supposed to be back on 09/2021 will continue the project then...
 
 - [x] search <br />
 - [x] whishlist (partially) <br />
